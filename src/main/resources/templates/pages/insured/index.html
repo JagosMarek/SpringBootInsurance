@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+<main class="container-table">
+  <article class="article-table">
+    <div class="header-table-page">
+      <h2>Seznam pojištěnců</h2>
+      <div class="header-button">
+        <input class="find" type="button" value="Vyhledat" />
+        <a th:href="@{/insured/create}"><input class="add" type="button" value="Přidat" /></a>
+      </div>
+    </div>
+    <div class="table-container">
+      <table class="table">
+        <thead class="table-head">
+        <tr>
+          <th>ID</th>
+          <th>Jméno</th>
+          <th>Příjmení</th>
+          <th>Adresa</th>
+          <th>Rodné číslo</th>
+          <th>Operace</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td data-label="ID">1</td>
+          <td data-label="Jméno">Marek</td>
+          <td data-label="Příjmení">Jagoš</td>
+          <td data-label="Adresa">Ledečská 2920, Havlíčkův Brod</td>
+          <td data-label="Rodné číslo">1234569854</td>
+          <td data-label="Operace">
+            <input class="edit" type="button" value="Editovat" />
+            <input class="delete" type="button" value="Odstranit" />
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</main>
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+<script th:src="@{/scripts/script.js}"></script>
+</body>
+</html>
