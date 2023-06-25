@@ -3,37 +3,39 @@
 <head th:replace="~{fragments/layout.html :: head}"></head>
 <body>
 <header th:replace="~{fragments/layout.html :: header}"></header>
+
+<div  th:text="${success}" th:if="${success}"></div>
+<div  th:text="${error}" th:if="${error}"></div>
+
 <main class="container-table">
   <article class="article-table">
     <div class="header-table-page">
       <h2>Seznam pojištěnců</h2>
       <div class="header-button">
-        <input class="find" type="button" value="Vyhledat" />
-        <a th:href="@{/insured/create}"><input class="add" type="button" value="Přidat" /></a>
+        <button class="find">Vyhledat</button>
+        <a th:href="@{/insured/create}"><button class="add">Přidat</button></a>
       </div>
     </div>
     <div class="table-container">
       <table class="table">
         <thead class="table-head">
         <tr>
-          <th>ID</th>
+          <th>Rodné číslo</th>
           <th>Jméno</th>
           <th>Příjmení</th>
           <th>Adresa</th>
-          <th>Rodné číslo</th>
           <th>Operace</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td data-label="ID">1</td>
-          <td data-label="Jméno">Marek</td>
-          <td data-label="Příjmení">Jagoš</td>
-          <td data-label="Adresa">Ledečská 2920, Havlíčkův Brod</td>
-          <td data-label="Rodné číslo">1234569854</td>
+        <tr th:each="insured: ${insured}">
+          <td data-label="Rodné číslo"><a th:href="@{'/insured/' + ${insured.insuredId}}" th:text="${insured.birthNumber}"></a></td>
+          <td data-label="Jméno" th:text="${insured.firstName}"></td>
+          <td data-label="Příjmení" th:text="${insured.lastName}"></td>
+          <td data-label="Adresa" th:text="${insured.street + ', ' + insured.city}"></td>
           <td data-label="Operace">
-            <input class="edit" type="button" value="Editovat" />
-            <input class="delete" type="button" value="Odstranit" />
+            <a th:href="@{'/insured/edit/' + ${insured.insuredId}}"><button class="edit">Editovat</button></a>
+            <a th:href="@{'/insured/delete/' + ${insured.insuredId}}"><button class="delete">Odstranit</button></a>
           </td>
         </tr>
         </tbody>

@@ -109,65 +109,6 @@ body {
     background-color: var(--black);
 }
 
-/* Global Navigation */
-
-.application-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-    box-shadow: 0 0 10px var(--black);
-    border-radius: 0 0 10px 10px;
-    background-color: white;
-}
-
-.application-navbar {
-    display: flex;
-    justify-content: center;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    padding: 20px;
-}
-
-.nav-logo img {
-    margin-top: 10px;
-}
-
-.nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-item {
-    margin-left: 5rem;
-}
-
-.nav-link {
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--black);
-}
-
-.nav-link:hover {
-    color: var(--shield-blue);
-}
-
-.bar-menu {
-    display: none;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: var(--black);
-}
-
 /* Global Footer */
 
 .application-footer {
@@ -267,13 +208,6 @@ body {
     border: .1rem solid rgba(0, 0, 0, .2);
 }
 
-.section-container input[type="number"] {
-    width: 100%;
-    padding: 5px;
-    border-radius: 3px;
-    border: .1rem solid rgba(0, 0, 0, .2);
-}
-
 .section-container input[type="submit"],
 .section-container input[type="button"] {
     margin: 10px;
@@ -336,29 +270,29 @@ body {
     font-size: 3rem;
 }
 
-.header-button input[type="button"] {
+.header-button button {
     padding: 11px;
     border-radius: 5px;
     border: none;
     margin: 0 6px;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     color: white;
     font-weight: bold;
 }
 
-.header-button input[type="button"]:hover {
+.header-button button:hover {
     filter: brightness(115%) contrast(85%);
     cursor: pointer;
 }
 
 .header-button .add {
     background-color: var(--black);
-    width: 95px;
+    width: 80px;
 }
 
 .header-button .find {
     background-color: var(--black);
-    width: 95px;
+    width: 80px;
 }
 
 /* table of insured */
@@ -384,15 +318,32 @@ body {
     font-size: 1.8rem;
 }
 
-.table td[data-label="ID"],
+.table td[data-label="Rodné číslo"] a {
+    width: 12%;
+    color: var(--shield-blue);
+}
+
+.table td[data-label="Jméno"],
+.table td[data-label="Příjmení"] {
+    width: 16%;
+}
+
+.table td[data-label="Adresa"] {
+    width: 38%;
+}
+
+.table td[data-label="Operace"] {
+    width: 18%;
+}
+
+.table td[data-label="Rodné číslo"],
 .table td[data-label="Jméno"],
 .table td[data-label="Příjmení"] {
     font-size: 1.5rem;
     word-break: break-all;
 }
 
-.table td[data-label="Adresa"],
-.table td[data-label="Rodné číslo"] {
+.table td[data-label="Adresa"] {
     font-size: 1.5rem;
     word-break: normal;
 }
@@ -420,33 +371,133 @@ body {
     border-bottom: none;
 }
 
+/*
 .table tr:nth-child(even) {
     background-color: var(--grey);
 }
+*/
+.table tr:hover {
+    background-color: var(--grey);
+}
 
-.table input[type="button"] {
-    padding: 11px;
-    border-radius: 25px;
+.table button {
+    padding: 8px 2px;
+    border-radius: 5px;
     border: none;
     margin: 3px 6px;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     color: white;
     font-weight: bold;
 }
 
-.table input[type="button"]:hover {
+.table button:hover {
     filter: brightness(115%) contrast(85%);
     cursor: pointer;
 }
 
 .table .edit {
     background-color: var(--black);
-    width: 95px;
+    width: 80px;
 }
 
 .table .delete {
     background-color: var(--red);
-    width: 95px;
+    width: 80px;
+}
+
+/* Detail of insured */
+
+.container-detail-insured {
+    background-color: white;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 75%;
+    margin: 5rem auto 0 auto;
+}
+
+.article-detail-insured {
+    display: flex;
+}
+
+.section-detail-insured {
+    background-color: white;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 1rem 1rem;
+    width: 33%;
+}
+
+.section-detail-insured h2 {
+    font-size: 1.8rem;
+}
+
+.section-detail-insured p {
+    font-size: 1.2rem;
+}
+
+.section-detail-insured .input-detail:hover {
+    filter: brightness(115%) contrast(85%);
+    border: .1rem solid var(--shield-blue);
+    cursor: pointer;
+}
+
+.section-detail-insured .input-detail:focus {
+    outline: none;
+}
+
+.section-detail-insured .input-detail {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-align: left;
+    overflow-x: auto;
+}
+
+
+.container-detail-insured button {
+    padding: 8px 2px;
+    border-radius: 5px;
+    border: none;
+    margin: 0px 6px 10px 0px;
+    font-size: 1.4rem;
+    color: white;
+    font-weight: bold;
+}
+
+.container-detail-insured button:hover {
+    filter: brightness(115%) contrast(85%);
+    cursor: pointer;
+}
+
+.container-detail-insured .edit {
+    background-color: var(--black);
+    width: 80px;
+}
+
+.container-detail-insured .delete {
+    background-color: var(--red);
+    width: 80px;
+}
+
+.container-detail-insured .add-insurance {
+    background-color: var(--black);
+    width: 100px;
+}
+
+.table td[data-label="Pojištění"],
+.table td[data-label="Částka"] {
+    font-size: 1.5rem;
+}
+
+.table td[data-label="Pojištění"] a {
+    color: var(--shield-blue);
 }
 
 /* Breakpoints */
@@ -596,23 +647,27 @@ body {
         text-align: left;
     }
 
-    .table input[type="button"] {
-        padding: 10px 0;
-        margin: 5px;
-        border: none;
-        margin: 2px 0;
-        color: white;
-        font-size: 15px;
+    .table button {
+        font-size: 1.4rem;
+        font-weight: bold;
     }
 
     .table .edit {
         background-color: var(--black);
-        width: 90px;
+        width: 80px;
     }
 
     .table .delete {
         background-color: var(--red);
-        width: 90px;
+        width: 80px;
+    }
+
+    .table td[data-label="Rodné číslo"],
+    .table td[data-label="Jméno"],
+    .table td[data-label="Příjmení"],
+    .table td[data-label="Adresa"],
+    .table td[data-label="Operace"] {
+        width: 100%;
     }
 }
 
@@ -627,9 +682,38 @@ body {
         margin-bottom: 12px;
     }
 
-    .header-button input[type="button"] {
+    .header-button button {
         margin: 5px 5px;
     }
+
+    .article-detail-insured {
+        display: block;
+    }
+
+    .section-detail-insured {
+        width: 100%;
+        margin: 7px auto;
+    }
+
+    .section-detail-insured h2 {
+        font-size: 1.4rem;
+    }
+
+    .section-detail-insured p {
+        font-size: 1rem;
+    }
+
+    .section-detail-insured .input-detail {
+        width: 100%;
+        padding: 5px;
+        border-radius: 3px;
+        border: .1rem solid rgba(0, 0, 0, .2);
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        text-align: left;
+        overflow-x: auto;
+    }
+
 }
 
 @media all and (max-width: 680px) {
@@ -694,7 +778,7 @@ body {
         font-size: 2rem;
     }
 
-    .header-button input[type="button"] {
+    .header-button button {
         font-size: 1.5rem;
     }
 
@@ -703,37 +787,10 @@ body {
     }
 
     .danger-text {
-            font-size: 0.9rem;
-    }
-}
-
-@media all and (max-width: 380px) {
-
-    .index-article h2 {
-        margin-left: 1.3rem;
-        font-size: 2.5rem;
+        font-size: 0.9rem;
     }
 
-    .index-article p {
-        margin: 0.8rem;
-    }
-
-    .table td[data-label="ID"],
-    .table td[data-label="Jméno"],
-    .table td[data-label="Příjmení"] {
-        font-size: 10px;
-    }
-
-    .table td[data-label="Adresa"],
-    .table td[data-label="Rodné číslo"] {
-        font-size: 10px;
-    }
-
-    .table td:before {
-        font-size: 10px;
-    }
-
-    .table input[type="button"] {
+    .table button {
         padding: 5px 0;
         margin: 5px;
         border: none;
@@ -755,6 +812,75 @@ body {
     .nav-link {
         font-size: 1.5rem;
     }
+
+    .container-detail-insured {
+        text-align: center;
+    }
+
+    .container-detail-insured button {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 5px 2px
+    }
+
+    .container-detail-insured .edit {
+        background-color: var(--black);
+        width: 60px;
+    }
+
+    .container-detail-insured .delete {
+        background-color: var(--red);
+        width: 60px;
+    }
+
+    .container-detail-insured .add-insurance {
+        background-color: var(--black);
+        width: 75px;
+    }
+
+    .table td[data-label="Pojištění"],
+    .table td[data-label="Částka"] {
+        font-size: 10px;
+    }
+
+    .table td:before {
+        font-size: 10px;
+    }
+}
+
+@media all and (max-width: 380px) {
+
+    .index-article h2 {
+        margin-left: 1.3rem;
+        font-size: 2.5rem;
+    }
+
+    .index-article p {
+        margin: 0.8rem;
+    }
+
+    .header-table-page h2 {
+        font-size: 1.4rem;
+    }
+
+    .header-button .find,
+    .header-button .add {
+        font-size: 10px;
+        width: 60px;
+        padding: 5px 0;
+    }
+
+    .table td[data-label="ID"],
+    .table td[data-label="Jméno"],
+    .table td[data-label="Příjmení"] {
+        font-size: 10px;
+    }
+
+    .table td[data-label="Adresa"],
+    .table td[data-label="Rodné číslo"] {
+        font-size: 10px;
+    }
+
 
 }
 
