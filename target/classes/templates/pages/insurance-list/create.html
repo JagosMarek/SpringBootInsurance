@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+<main class="container">
+  <article class="article-container">
+    <h2>
+      Založení nového pojištění
+    </h2>
+    <section class="section-container">
+      <form th:object="${insuranceListDTO}" th:action="@{/insurance-list/create}" th:method="post">
+        <label>
+          Pojištění
+          <small th:errors="*{insuranceName}" class="danger-text"></small>
+          <input th:field="*{insuranceName}" type="text" name="insuranceName" id="insuranceName">
+        </label>
+        <label>
+          Pojišťovna
+          <small th:errors="*{insuranceCompany}" class="danger-text"></small>
+          <input th:field="*{insuranceCompany}" type="text" name="insuranceCompany" id="insuranceCompany">
+        </label>
+        <label>
+          Popis
+          <small th:errors="*{insuranceDescription}" class="danger-text"></small>
+          <input th:field="*{insuranceDescription}" type="text" name="insuranceDescription" id="insuranceDescription">
+        </label>
+        <div class="button-container">
+          <input type="submit" value="Založit" />
+          <input type="button" value="Vymazat" onclick="resetInsuranceListCreateForm()" />
+        </div>
+      </form>
+    </section>
+  </article>
+</main>
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+<script th:src="@{/scripts/script.js}"></script>
+</body>
+</html>

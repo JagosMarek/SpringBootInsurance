@@ -8,6 +8,15 @@
     <meta name="author" content="Marek Jagoš"/>
     <link rel="shortcut icon" th:href="@{/images/insurance-ico.ico}"/>
     <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.3/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: "input[id*=insuranceDescription]",
+            entities: "160,nbsp",
+            entity_encoding: "named",
+            entity_encoding: "raw"
+        });
+    </script>
     <title>Pojištění</title>
 </head>
 <body>
@@ -21,7 +30,7 @@
                 <a th:href="@{/insured}" class="nav-link">Pojištěnci</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Pojištění</a>
+                <a th:href="@{/insurance}" class="nav-link">Pojištění</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">Události</a>

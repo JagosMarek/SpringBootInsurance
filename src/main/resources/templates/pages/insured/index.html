@@ -4,10 +4,9 @@
 <body>
 <header th:replace="~{fragments/layout.html :: header}"></header>
 
-<div  th:text="${success}" th:if="${success}"></div>
-<div  th:text="${error}" th:if="${error}"></div>
-
 <main class="container-table">
+  <div class="flash-success"  th:text="${success}" th:if="${success}"></div>
+  <div class="flash-error" th:text="${error}" th:if="${error}"></div>
   <article class="article-table">
     <div class="header-table-page">
       <h2>Seznam pojištěnců</h2>

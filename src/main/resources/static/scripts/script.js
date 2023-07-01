@@ -35,4 +35,12 @@ function resetInsuredCreateForm() {
     document.getElementById("street").value = "";
     document.getElementById("city").value = "";
     document.getElementById("psc").value = "";
-  }
+}
+
+/* create insuranceList */
+
+function resetInsuranceListCreateForm(){
+    document.getElementById("insuranceName").value = "";
+    document.getElementById("insuranceCompany").value = "";
+    tinymce.get("insuranceDescription").setContent("");
+}
