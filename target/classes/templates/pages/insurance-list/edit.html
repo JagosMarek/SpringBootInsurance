@@ -6,27 +6,27 @@
 <main class="container">
   <article class="article-container">
     <h2>
-      Založení nového pojištění
+      Úprava pojištění
     </h2>
     <section class="section-container">
-      <form th:object="${insuranceListDTO}" th:action="@{/insurance-list/create}" th:method="post">
+      <form th:object="${insuranceListDTO}" th:action="@{'/insurance-list/edit/' + ${insuranceListId}}" th:method="post">
         <label>
           Pojištění
-          <small th:errors="*{insuranceName}" class="danger-text"></small>
+          <small th:if="${#fields.hasErrors('insuranceName')}" th:errors="*{insuranceName}" class="danger-text"></small>
           <input th:field="*{insuranceName}" type="text" name="insuranceName" id="insuranceName">
         </label>
         <label>
           Pojišťovna
-          <small th:errors="*{insuranceCompany}" class="danger-text"></small>
+          <small th:if="${#fields.hasErrors('insuranceCompany')}" th:errors="*{insuranceCompany}" class="danger-text"></small>
           <input th:field="*{insuranceCompany}" type="text" name="insuranceCompany" id="insuranceCompany">
         </label>
         <label>
           Popis
-          <small th:errors="*{insuranceDescription}" class="danger-text"></small>
+          <small th:if="${#fields.hasErrors('insuranceDescription')}" th:errors="*{insuranceDescription}" class="danger-text"></small>
           <input th:field="*{insuranceDescription}" type="text" name="insuranceDescription" id="insuranceDescription">
         </label>
         <div class="button-container">
-          <input type="submit" value="Založit" />
+          <input type="submit" value="Uložit" />
           <input type="button" value="Vymazat" onclick="resetInsuranceListCreateForm()" />
         </div>
       </form>

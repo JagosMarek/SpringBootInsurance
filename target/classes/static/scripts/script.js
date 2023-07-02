@@ -37,6 +37,8 @@ function resetInsuredCreateForm() {
     document.getElementById("psc").value = "";
 }
 
+/* create insuranceList */
+
 function resetInsuranceListCreateForm(){
     document.getElementById("insuranceName").value = "";
     document.getElementById("insuranceCompany").value = "";

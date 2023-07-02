@@ -209,6 +209,7 @@ body {
     border: .1rem solid rgba(0, 0, 0, .2);
 }
 
+.section-container .back,
 .section-container input[type="submit"],
 .section-container input[type="button"] {
     margin: 10px;
@@ -226,6 +227,7 @@ body {
     margin: 10px;
 }
 
+.section-container .back:hover,
 .section-container input[type="submit"]:hover,
 .section-container input[type="button"]:hover {
     filter: brightness(115%) contrast(85%);
@@ -236,6 +238,7 @@ body {
     cursor: pointer;
 }
 
+.section-container .back:focus,
 .section-container input[type="submit"]:focus,
 .section-container input[type="button"]:focus {
     outline: none;
@@ -367,19 +370,12 @@ body {
 }
 
 .table td[data-label="Smlouva"],
-.table td[data-label="Popis"],
+.table td[data-label="Pojišťovna"],
 .table td[data-label="Adresa"],
 .table td[data-label="Pojištění"],
 .table td[data-label="Limit"] {
     font-size: 1.5rem;
     word-break: normal;
-}
-
-.table td[data-label="Popis"] {
-    max-width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .table td[data-label="Pojištění"] a,
@@ -524,6 +520,78 @@ body {
 .container-detail-insured .add-insurance {
     background-color: var(--black);
     width: 100px;
+}
+
+/* Detail of insuranceList */
+
+.container-detail-insurance-list {
+    background-color: white;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 75%;
+    margin: 5rem auto 0 auto;
+}
+
+.section-detail-insurance-list h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.section-detail-insurance-list p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.section-detail-insurance-list .input-detail-insurance-list-description {
+    font-size: 1.5rem;
+}
+
+.section-detail-insurance-list .input-detail-insurance-list:hover {
+    filter: brightness(115%) contrast(85%);
+    border: .1rem solid var(--shield-blue);
+    cursor: pointer;
+}
+
+.section-detail-insurance-list .input-detail-insurance-list:focus {
+    outline: none;
+}
+
+.section-detail-insurance-list .input-detail-insurance-list {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-align: left;
+    overflow-x: auto;
+}
+
+.container-detail-insurance-list button {
+    padding: 8px 2px;
+    border-radius: 5px;
+    border: none;
+    margin: 0px 6px 10px 0px;
+    font-size: 1.4rem;
+    color: white;
+    font-weight: bold;
+}
+
+.container-detail-insurance-list button:hover {
+    filter: brightness(115%) contrast(85%);
+    cursor: pointer;
+}
+
+.container-detail-insurance-list .edit {
+    background-color: var(--black);
+    width: 80px;
+}
+
+.container-detail-insurance-list .delete {
+    background-color: var(--red);
+    width: 80px;
 }
 
 /* Breakpoints */
@@ -677,10 +745,6 @@ body {
         text-align: left;
     }
 
-    .table td[data-label="Popis"] {
-        display: none;
-    }
-
     .table button {
         font-size: 1.4rem;
         font-weight: bold;
@@ -703,6 +767,11 @@ body {
     .table td[data-label="Operace"] {
         width: 100%;
     }
+
+    .mce-tinymce {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
 }
 
 @media all and (max-width: 750px) {
@@ -748,6 +817,23 @@ body {
         overflow-x: auto;
     }
 
+    .section-detail-insurance-list h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-detail-insurance-list p {
+        font-size: 1rem;
+    }
+
+    .section-detail-insurance-list .input-detail-insurance-list {
+        font-size: 1.2rem;
+    }
+
+    .section-detail-insurance-list .input-detail-insurance-list-description {
+        font-size: 1.2rem;
+    }
+
 }
 
 @media all and (max-width: 680px) {
@@ -771,6 +857,10 @@ body {
     }
 
     .container-table {
+        margin-top: 2rem;
+    }
+
+    .container-detail-insurance-list {
         margin-top: 2rem;
     }
 
@@ -873,8 +963,23 @@ body {
         width: 75px;
     }
 
+    .container-detail-insurance-list button {
+        font-size: 10px;
+        padding: 5px 2px
+    }
+
+    .container-detail-insurance-list .edit {
+        background-color: var(--black);
+        width: 60px;
+    }
+
+    .container-detail-insurance-list .delete {
+        background-color: var(--red);
+        width: 60px;
+    }
+
     .table td[data-label="Smlouva"],
-    .table td[data-label="Popis"],
+    .table td[data-label="Pojišťovna"],
     .table td[data-label="Pojištění"],
     .table td[data-label="Limit"] {
         font-size: 10px;
@@ -884,6 +989,9 @@ body {
         font-size: 10px;
     }
 
+    .section-detail-insurance-list {
+        text-align: center;
+    }
 
 }
 
@@ -915,7 +1023,7 @@ body {
     .table td[data-label="ID"],
     .table td[data-label="Jméno"],
     .table td[data-label="Příjmení"],
-    .table td[data-label="Popis"],
+    .table td[data-label="Pojišťovna"],
     .table td[data-label="Adresa"],
     .table td[data-label="Rodné číslo"] {
         font-size: 10px;
