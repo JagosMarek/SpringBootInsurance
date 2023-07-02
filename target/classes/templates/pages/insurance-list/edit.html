@@ -30,7 +30,7 @@
           <input type="button" value="Vymazat" onclick="resetInsuranceListCreateForm()" />
         </div>
       </form>
-      <a th:href="@{/insurance-list}"><button class="back">Zpět</button></a>
+      <a th:href="@{'/insurance-list/' + ${insuranceListId}}"><button class="back">Zpět</button></a>
     </section>
   </article>
 </main>

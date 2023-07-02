@@ -281,16 +281,47 @@ body {
     margin: 5rem auto 0 auto;
 }
 
-.header-table-page {
+.find-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     border: .1rem solid rgba(0, 0, 0, .2);
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
     border-radius: 10px;
     padding: 10px 20px;
     background-color: white;
     margin: 2rem 0;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header-table-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.find-header form div {
+    width: 100%;
+    display: flex;
+    gap: 5rem;
+}
+
+.find-header label {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1.75rem;
+    text-align: left;
+}
+
+.find-header input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: .1rem solid rgba(0, 0, 0, .2);
+}
+
+.find-header input[type="text"]:hover {
+    border: .1rem solid var(--shield-blue);
+    cursor: pointer;
 }
 
 .header-table-page h2 {
@@ -596,10 +627,6 @@ body {
 
 /* Breakpoints */
 
-@media all and (max-width: 950px) {
-
-}
-
 @media all and (max-width: 850px) {
 
     .nav-menu {
@@ -768,13 +795,13 @@ body {
         width: 100%;
     }
 
-    .mce-tinymce {
-        max-width: 100% !important;
-        width: 100% !important;
-      }
+    .find-header form div {
+        flex-direction: column;
+        gap: 0;
+    }
 }
 
-@media all and (max-width: 750px) {
+@media all and (max-width: 800px) {
 
     .header-table-page {
         flex-direction: column;
@@ -991,6 +1018,14 @@ body {
 
     .section-detail-insurance-list {
         text-align: center;
+    }
+
+    .find-header label {
+        font-size: 1.3rem;
+    }
+
+    .find-header input[type="text"]{
+        font-size: 1.1rem;
     }
 
 }

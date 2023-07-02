@@ -8,12 +8,40 @@
   <div class="flash-success"  th:text="${success}" th:if="${success}"></div>
   <div class="flash-error" th:text="${error}" th:if="${error}"></div>
   <article class="article-table">
-    <div class="header-table-page">
-      <h2>Seznam pojištěnců</h2>
-      <div class="header-button">
-        <button class="find">Vyhledat</button>
-        <a th:href="@{/insured/create}"><button class="add">Přidat</button></a>
+    <div class="find-header">
+      <div class="header-table-page">
+        <h2>Seznam pojištěnců</h2>
+        <div class="header-button">
+          <button class="find">Vyhledat</button>
+          <a th:href="@{/insured/create}"><button class="add">Přidat</button></a>
+        </div>
       </div>
+      <form>
+        <div>
+          <label>
+            Jméno
+            <br>
+            <input type="text" name="firstName" id="firstName">
+          </label>
+          <label>
+            Rodné číslo
+            <br>
+            <input type="text" name="lastName" id="lastName">
+          </label>
+        </div>
+        <div>
+          <label>
+            Příjmení
+            <br>
+            <input type="text" name="birthNumber" id="birthNumber" placeholder="1234561234">
+          </label>
+          <label>
+            ID
+            <br>
+            <input type="text" name="idNumber" id="idNumber">
+          </label>
+        </div>
+      </form>
     </div>
     <div class="table-container">
       <table class="table">
