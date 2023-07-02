@@ -11,6 +11,7 @@
     <div class="header-table-page">
       <h2>Seznam pojištění</h2>
       <div class="header-button">
+        <a th:href="@{/insurance}"><button class="find">Zpět</button></a>
         <button class="find">Vyhledat</button>
         <a th:href="@{/insurance-list/create}"><button class="add">Přidat</button></a>
       </div>
@@ -20,19 +21,17 @@
         <thead class="table-head">
         <tr>
           <th>Pojištění</th>
-          <th>Popis</th>
+          <th>Pojišťovna</th>
           <th>Operace</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td data-label="Pojištění"><a>Pojištění domácnosti</a></td>
-          <td data-label="Popis">Pojištění domácnost, Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Dolores ipsum voluptates doloribus ullam? Nisi facere asperiores eius soluta doloremque,
-            voluptas minus cum error doloribus, porro suscipit placeat odit illum architecto.</td>
+        <tr th:each="insuranceList: ${insuranceList}">
+          <td data-label="Pojištění"><a th:href="@{'/insurance-list/' + ${insuranceList.insuranceListId}}" th:text="${insuranceList.insuranceName}"></a></td>
+          <td data-label="Pojišťovna" th:text="${insuranceList.insuranceCompany}"></td>
           <td data-label="Operace">
-            <button class="edit">Editovat</button>
-            <button class="delete">Odstranit</button>
+            <a th:href="@{'/insurance-list/edit/' + ${insuranceList.insuranceListId}}"><button class="edit">Editovat</button></a>
+            <a th:href="@{'/insurance-list/delete/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a>
           </td>
         </tr>
         </tbody>
