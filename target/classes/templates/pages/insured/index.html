@@ -8,43 +8,14 @@
   <div class="flash-success"  th:text="${success}" th:if="${success}"></div>
   <div class="flash-error" th:text="${error}" th:if="${error}"></div>
   <article class="article-table">
-    <div class="find-header">
       <div class="header-table-page">
         <h2>Seznam pojištěnců</h2>
         <div class="header-button">
-          <button class="find">Vyhledat</button>
           <a th:href="@{/insured/create}"><button class="add">Přidat</button></a>
         </div>
-      </div>
-      <form>
-        <div>
-          <label>
-            Jméno
-            <br>
-            <input type="text" name="firstName" id="firstName">
-          </label>
-          <label>
-            Rodné číslo
-            <br>
-            <input type="text" name="lastName" id="lastName">
-          </label>
-        </div>
-        <div>
-          <label>
-            Příjmení
-            <br>
-            <input type="text" name="birthNumber" id="birthNumber" placeholder="1234561234">
-          </label>
-          <label>
-            ID
-            <br>
-            <input type="text" name="idNumber" id="idNumber">
-          </label>
-        </div>
-      </form>
     </div>
     <div class="table-container">
-      <table class="table">
+      <table class="table" id="query-table">
         <thead class="table-head">
         <tr>
           <th>Rodné číslo</th>
@@ -72,5 +43,51 @@
 </main>
 <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 <script th:src="@{/scripts/script.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script th:src="@{/scripts/datatables.js}"></script>
+<script>
+    $(document).ready(function(){
+    $("#query-table").DataTable({
+        "dom": 'lBfrtip',
+        "lengthMenu": [10, 25, 50, 75, 100],
+        "columnDefs": [
+            { "orderable": false, "targets": [-1] } // Zakázat řazení sloupce "Operace"
+        ],
+        "buttons": [
+            {
+                extend: 'csv',
+                text: 'CSV'
+            },
+            {
+                extend: 'pdf',
+                text: 'PDF',
+                customize: function (doc) {
+                    doc.content[1].table.body.forEach(function (row) {
+                        row.splice(4, 1);
+                    });
+                }
+            }
+        ],
+        "language": {
+            "search": "Hledat:",
+            "lengthMenu": "Zobrazit _MENU_ záznamů na stránku",
+            "zeroRecords": "Nenalezeny žádné výsledky",
+            "info": "Strana _PAGE_ z _PAGES_, Celkem výsledků: _TOTAL_",
+            "infoEmpty": "Žádné dostupné záznamy",
+            "infoFiltered": "(filtrováno z celkového počtu _MAX_ záznamů)",
+            "paginate": {
+                "first": "První",
+                "previous": "<",
+                "next": ">",
+                "last": "Poslední"
+            },
+            "buttons": {
+                "csv": "CSV",
+                "pdf": "PDF",
+            }
+        }
+    });
+});
+</script>
 </body>
 </html>

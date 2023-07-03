@@ -44,3 +44,6 @@ function resetInsuranceListCreateForm(){
     document.getElementById("insuranceCompany").value = "";
     tinymce.get("insuranceDescription").setContent("");
 }
+
+
+
