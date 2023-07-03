@@ -281,8 +281,7 @@ body {
     margin: 5rem auto 0 auto;
 }
 
-.find-header {
-    display: flex;
+.header-table-page {
     border: .1rem solid rgba(0, 0, 0, .2);
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
     border-radius: 10px;
@@ -291,37 +290,10 @@ body {
     margin: 2rem 0;
     flex-direction: column;
     width: 100%;
-}
-
-.header-table-page {
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.find-header form div {
-    width: 100%;
     display: flex;
-    gap: 5rem;
-}
-
-.find-header label {
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 1.75rem;
-    text-align: left;
-}
-
-.find-header input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    border-radius: 3px;
-    border: .1rem solid rgba(0, 0, 0, .2);
-}
-
-.find-header input[type="text"]:hover {
-    border: .1rem solid var(--shield-blue);
-    cursor: pointer;
+    flex-direction: row;
+    align-items: center;
 }
 
 .header-table-page h2 {
@@ -348,7 +320,7 @@ body {
     width: 80px;
 }
 
-.header-button .find {
+.header-button .back {
     background-color: var(--black);
     width: 80px;
 }
@@ -627,7 +599,7 @@ body {
 
 /* Breakpoints */
 
-@media all and (max-width: 850px) {
+@media all and (max-width: 865px) {
 
     .nav-menu {
         position: fixed;
@@ -793,11 +765,6 @@ body {
     .table td[data-label="Adresa"],
     .table td[data-label="Operace"] {
         width: 100%;
-    }
-
-    .find-header form div {
-        flex-direction: column;
-        gap: 0;
     }
 }
 
@@ -1019,15 +986,6 @@ body {
     .section-detail-insurance-list {
         text-align: center;
     }
-
-    .find-header label {
-        font-size: 1.3rem;
-    }
-
-    .find-header input[type="text"]{
-        font-size: 1.1rem;
-    }
-
 }
 
 @media all and (max-width: 380px) {
@@ -1045,7 +1003,7 @@ body {
         font-size: 1.4rem;
     }
 
-    .header-button .find,
+    .header-button .back,
     .header-button .add {
         font-size: 10px;
         width: 60px;
