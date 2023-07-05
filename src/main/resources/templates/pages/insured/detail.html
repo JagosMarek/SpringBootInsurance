@@ -46,7 +46,7 @@
     <br>
 
     <a th:href="@{'/insured/edit/' + ${insured.insuredId}}"><button class="edit">Editovat</button></a>
-    <a th:href="@{'/insured/delete/' + ${insured.insuredId}}"><button class="delete">Odstranit</button></a>
+    <a th:href="@{'/insured/deleteform/' + ${insured.insuredId}}"><button class="delete">Odstranit</button></a>
     <a th:href="@{/insured}"><button class="edit">Zpět</button></a>
     <hr>
     <br>
@@ -74,7 +74,7 @@
             </tbody>
         </table>
     </div>
-    <button class="add-insurance">Přidat Pojištění</button>
+    <a th:href="@{'/insurance/create/' + ${insured.insuredId}}"><button class="add-insurance">Přidat Pojištění</button></a>
 </main>
 <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 <script th:src="@{/scripts/script.js}"></script>

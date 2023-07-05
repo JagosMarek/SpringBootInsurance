@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="table-container">
-      <table class="table">
+      <table class="table" id="query-table">
         <thead class="table-head">
         <tr>
           <th>Pojištění</th>
@@ -30,7 +30,7 @@
           <td data-label="Pojišťovna" th:text="${insuranceList.insuranceCompany}"></td>
           <td data-label="Operace">
             <a th:href="@{'/insurance-list/edit/' + ${insuranceList.insuranceListId}}"><button class="edit">Editovat</button></a>
-            <a th:href="@{'/insurance-list/delete/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a>
+            <a th:href="@{'/insurance-list/deleteform/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a>
           </td>
         </tr>
         </tbody>
@@ -41,5 +41,53 @@
 
 <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 <script th:src="@{/scripts/script.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/b-2.3.6/b-html5-2.3.6/datatables.min.js"></script>
+<script>
+    $(document).ready(function(){
+    $("#query-table").DataTable({
+        "dom": 'lBfrtip',
+        "lengthMenu": [10, 25, 50, 75, 100],
+        "columnDefs": [
+            { "orderable": false, "targets": [-1] }
+        ],
+        "buttons": [
+            {
+                extend: 'csv',
+                text: 'CSV'
+            },
+            {
+                extend: 'pdf',
+                text: 'PDF',
+                customize: function (doc) {
+                    doc.content[1].table.body.forEach(function (row) {
+                        row.splice(4, 1);
+                    });
+                }
+            }
+        ],
+        "language": {
+            "search": "Hledat:",
+            "lengthMenu": "Zobrazit _MENU_ záznamů na stránku",
+            "zeroRecords": "Nenalezeny žádné výsledky",
+            "info": "Strana _PAGE_ z _PAGES_, Celkem výsledků: _TOTAL_",
+            "infoEmpty": "Žádné dostupné záznamy",
+            "infoFiltered": "(filtrováno z celkového počtu _MAX_ záznamů)",
+            "paginate": {
+                "first": "První",
+                "previous": "<",
+                "next": ">",
+                "last": "Poslední"
+            },
+            "buttons": {
+                "csv": "CSV",
+                "pdf": "PDF",
+            }
+        }
+    });
+});
+</script>
 </body>
 </html>

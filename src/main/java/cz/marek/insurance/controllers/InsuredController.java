@@ -32,6 +32,14 @@ public class InsuredController {
         return "pages/insured/index";
     }
 
+    @GetMapping("deleteform/{insuredId}")
+    public String renderDeleteForm(@PathVariable long insuredId, Model model){
+        InsuredDTO insuredDTO = insuredService.getById(insuredId);
+        model.addAttribute("insured", insuredDTO);
+
+        return "pages/insured/deleteform";
+    }
+
     @GetMapping("create")
     public String renderCreateForm(@ModelAttribute InsuredDTO insuredDTO) {
         return "pages/insured/create";
