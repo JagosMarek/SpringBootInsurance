@@ -42,7 +42,17 @@ function resetInsuredCreateForm() {
 function resetInsuranceListCreateForm(){
     document.getElementById("insuranceName").value = "";
     document.getElementById("insuranceCompany").value = "";
-    tinymce.get("insuranceDescription").setContent("");
+    document.getElementById("insuranceDescription").value = "";
+}
+
+/* create insurance */
+
+function resetInsuranceCreateForm() {
+    document.getElementById("limit").value = "";
+    document.getElementById("subjectOfInsurance").value = "";
+    document.getElementById("beginning").value = "";
+    document.getElementById("end").value = "";
+    document.getElementById("insuranceListId").selectedIndex = -1;
 }
 
 

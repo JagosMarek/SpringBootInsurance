@@ -14,14 +14,12 @@
             <p>Pojišťova:</p>
             <p class="input-detail-insurance-list" th:text="${insuranceList.insuranceCompany}"></p>
             <p>Popis:</p>
-            <hr>
-            <p class="input-detail-insurance-list-description" th:utext="${insuranceList.insuranceDescription}"></p>
-            <hr>
+            <p class="input-detail-insurance-list" th:text="${insuranceList.insuranceDescription}"></p>
             <br>
         </section>
     </article>
     <a th:href="@{'/insurance-list/edit/' + ${insuranceList.insuranceListId}}"><button class="edit">Editovat</button></a>
-    <a th:href="@{'/insurance-list/delete/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a>
+    <a th:href="@{'/insurance-list/deleteform/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a>
     <a th:href="@{/insurance-list}"><button class="edit">Zpět</button></a>
 </main>
 <footer th:replace="~{fragments/layout.html :: footer}"></footer>

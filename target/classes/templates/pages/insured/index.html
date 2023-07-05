@@ -33,7 +33,7 @@
           <td data-label="Adresa" th:text="${insured.street + ', ' + insured.city}"></td>
           <td data-label="Operace">
             <a th:href="@{'/insured/edit/' + ${insured.insuredId}}"><button class="edit">Editovat</button></a>
-            <a th:href="@{'/insured/delete/' + ${insured.insuredId}}"><button class="delete">Odstranit</button></a>
+            <a th:href="@{'/insured/deleteform/' + ${insured.insuredId}}"><button class="delete">Odstranit</button></a>
           </td>
         </tr>
         </tbody>
@@ -53,7 +53,7 @@
         "dom": 'lBfrtip',
         "lengthMenu": [10, 25, 50, 75, 100],
         "columnDefs": [
-            { "orderable": false, "targets": [-1] } // Zakázat řazení sloupce "Operace"
+            { "orderable": false, "targets": [-1] }
         ],
         "buttons": [
             {
