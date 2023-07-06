@@ -10,7 +10,7 @@
                 Osobní údaje
             </h2>
             <p>ID:</p>
-            <p class="input-detail" th:text="${insured.insuredId}"></p>
+            <p class="input-detail" th:text="'3200A' + ${insured.insuredId}"></p>
             <p>Rodné číslo:</p>
             <p class="input-detail" th:text="${insured.birthNumber}"></p>
             <p>Jméno:</p>
@@ -62,10 +62,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td data-label="Smlouva"><a href="#">21546358</a></td>
-                <td data-label="Pojištění">Pojištění domácnost</td>
-                <td data-label="Limit">1 200 000 Kč</td>
+            <tr th:each="insurance : ${insuredList}">
+                <td data-label="Smlouva"><a href="#" th:text="${insurance.insuranceId} + '' + ${insurance.insuredId} + '' + ${insurance.insuranceListId} + '8000PP'"></a>
+                <td data-label="Pojištění" th:text="${insurance.subjectOfInsurance}"></td>
+                <td data-label="Limit" th:text="${insurance.insuranceLimit}"></td>
                 <td data-label="Operace">
                     <button class="edit">Editovat</button>
                     <button class="delete">Odstranit</button>

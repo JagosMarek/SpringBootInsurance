@@ -48,7 +48,7 @@ function resetInsuranceListCreateForm(){
 /* create insurance */
 
 function resetInsuranceCreateForm() {
-    document.getElementById("limit").value = "";
+    document.getElementById("insuranceLimit").value = "";
     document.getElementById("subjectOfInsurance").value = "";
     document.getElementById("beginning").value = "";
     document.getElementById("end").value = "";

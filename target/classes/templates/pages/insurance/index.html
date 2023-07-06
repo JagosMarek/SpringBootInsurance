@@ -24,9 +24,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td data-label="Smlouva"><a href="#">21546358</a></td>
-                    <td data-label="Pojištění">Pojištění domácnost</td>
+                <tr th:each="insurance: ${insurance}">
+                    <td data-label="Smlouva"><a href="#" th:text="${insurance.insuranceId} + '' + ${insurance.insuredId} + '' + ${insurance.insuranceListId} + '8000PP'"></a>
+                    <td data-label="Pojištění" th:text="'3200A' + ${insurance.insuredId}"></td>
                     <td data-label="Operace">
                         <button class="edit">Editovat</button>
                         <button class="delete">Odstranit</button>
