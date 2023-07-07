@@ -9,4 +9,6 @@ public interface InsuranceRepository extends CrudRepository<InsuranceEntity, Lon
 
     List<InsuranceEntity> findByInsuredId(long insuredId);
 
+    List<InsuranceEntity> findByInsuranceListId(long insuranceListId);
+
 }

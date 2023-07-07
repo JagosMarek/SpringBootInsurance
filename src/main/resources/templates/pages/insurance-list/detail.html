@@ -23,6 +23,32 @@
     <a th:href="@{'/insurance-list/edit/' + ${insuranceList.insuranceListId}}"><button class="edit">Editovat</button></a>
     <a th:href="@{'/insurance-list/deleteform/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a>
     <a th:href="@{/insurance-list}"><button class="edit">Zpět</button></a>
+    <hr>
+    <br>
+    <h2>Seznam pojištění</h2>
+    <div class="table-container">
+        <table class="table">
+            <thead class="table-head">
+            <tr>
+                <th>Smlouva</th>
+                <th>Pojištění</th>
+                <th>Limit</th>
+                <th>Operace</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="insurance : ${insuredList}">
+                <td data-label="Smlouva"><a th:href="@{'/insurance/' + ${insurance.insuranceId}}" th:text="${insurance.insuranceId} + '' + ${insurance.insuredId} + '' + ${insurance.insuranceListId} + '8000PP'"></a>
+                <td data-label="Pojištění" th:text="${insurance.subjectOfInsurance}"></td>
+                <td data-label="Limit" th:text="${insurance.insuranceLimit}  + ' Kč'"></td>
+                <td data-label="Operace">
+                    <a th:href="@{'/insurance/edit/' + ${insurance.insuranceId}}"><button class="edit">Editovat</button></a>
+                    <a th:href="@{'/insurance/deleteform/' + ${insurance.insuranceId}}"><button class="delete">Odstranit</button></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </main>
 <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 <script th:src="@{/scripts/script.js}"></script>

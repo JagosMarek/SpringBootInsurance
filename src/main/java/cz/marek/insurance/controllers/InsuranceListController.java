@@ -1,10 +1,13 @@
 package cz.marek.insurance.controllers;
 
+import cz.marek.insurance.models.dto.InsuranceDTO;
 import cz.marek.insurance.models.dto.InsuranceListDTO;
 import cz.marek.insurance.models.dto.InsuredDTO;
 import cz.marek.insurance.models.dto.mappers.InsuranceListMapper;
 import cz.marek.insurance.models.exceptions.InsuranceListNotFoundException;
 import cz.marek.insurance.models.services.InsuranceListService;
+import cz.marek.insurance.models.services.InsuranceService;
+import cz.marek.insurance.models.services.InsuredService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +24,9 @@ public class InsuranceListController {
 
     @Autowired
     private InsuranceListService insuranceListService;
+
+    @Autowired
+    private InsuranceService insuranceService;
 
     @Autowired
     private InsuranceListMapper insuranceListMapper;
@@ -49,6 +55,9 @@ public class InsuranceListController {
     @GetMapping("{insuranceListId}")
     public String renderDetail(@PathVariable long insuranceListId, Model model){
         InsuranceListDTO insuranceListDTO = insuranceListService.getById(insuranceListId);
+        List<InsuranceDTO> insuranceList = insuranceService.getByInsuranceListId(insuranceListId);
+
+        model.addAttribute("insuredList", insuranceList);
         model.addAttribute("insuranceList", insuranceListDTO);
 
         return "pages/insurance-list/detail";

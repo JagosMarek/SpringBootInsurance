@@ -11,6 +11,7 @@ import cz.marek.insurance.models.services.InsuredService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.swing.text.Document;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -123,4 +127,6 @@ public class InsuranceController {
         redirectAttributes.addFlashAttribute("error", "Pojištění nenalezeno");
         return "redirect:/insurance/";
     }
+
+
 }

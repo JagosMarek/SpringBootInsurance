@@ -2,6 +2,8 @@ package cz.marek.insurance.data.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class InsuranceListEntity {
 

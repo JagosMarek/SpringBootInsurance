@@ -8,9 +8,11 @@ public interface InsuranceService {
 
     void create(InsuranceDTO insuranceDTO);
 
-    public List<InsuranceDTO> getAll();
+    List<InsuranceDTO> getAll();
 
-    public List<InsuranceDTO> getByInsuredId(long insuredId);
+    List<InsuranceDTO> getByInsuredId(long insuredId);
+
+    List<InsuranceDTO> getByInsuranceListId(long insuranceListId);
 
     InsuranceDTO getById(long insuranceId);
 
