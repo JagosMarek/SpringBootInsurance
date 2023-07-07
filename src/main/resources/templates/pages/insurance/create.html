@@ -4,6 +4,8 @@
 <body onload="reset()">
 <header th:replace="~{fragments/layout.html :: header}"></header>
 <main class="container">
+    <div class="flash-success"  th:text="${success}" th:if="${success}"></div>
+    <div class="flash-error" th:text="${error}" th:if="${error}"></div>
     <article class="article-container">
         <h2>
             Přidaní nového pojištění
@@ -19,8 +21,8 @@
                 </label>
                 <label>
                     Limit
-                    <small th:errors="*{limit}" class="danger-text"></small>
-                    <input th:field="*{limit}" type="text" name="limit" id="limit">
+                    <small th:errors="*{insuranceLimit}" class="danger-text"></small>
+                    <input th:field="*{insuranceLimit}" type="text" name="insuranceLimit" id="insuranceLimit">
                 </label>
                 <label>
                     Předmět pojištění

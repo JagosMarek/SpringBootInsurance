@@ -2,6 +2,8 @@ package cz.marek.insurance.data.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class InsuredEntity {
     @Id
@@ -97,4 +99,5 @@ public class InsuredEntity {
     public void setPsc(String psc) {
         this.psc = psc;
     }
+
 }

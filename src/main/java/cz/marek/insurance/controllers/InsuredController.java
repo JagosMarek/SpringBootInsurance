@@ -1,9 +1,11 @@
 package cz.marek.insurance.controllers;
 
 
+import cz.marek.insurance.models.dto.InsuranceDTO;
 import cz.marek.insurance.models.dto.InsuredDTO;
 import cz.marek.insurance.models.dto.mappers.InsuredMapper;
 import cz.marek.insurance.models.exceptions.InsuredNotFoundException;
+import cz.marek.insurance.models.services.InsuranceService;
 import cz.marek.insurance.models.services.InsuredService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class InsuredController {
 
     @Autowired
     private InsuredMapper insuredMapper;
+
+    @Autowired
+    private InsuranceService insuranceService;
 
     @GetMapping
     public String renderIndex(Model model) {
@@ -48,6 +53,9 @@ public class InsuredController {
     @GetMapping("{insuredId}")
     public String renderDetail(@PathVariable long insuredId, Model model){
         InsuredDTO insuredDTO = insuredService.getById(insuredId);
+        List<InsuranceDTO> insuranceList = insuranceService.getByInsuredId(insuredId);
+
+        model.addAttribute("insuredList", insuranceList);
         model.addAttribute("insured", insuredDTO);
 
         return "pages/insured/detail";

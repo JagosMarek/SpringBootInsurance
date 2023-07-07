@@ -4,6 +4,8 @@
 <body>
 <header th:replace="~{fragments/layout.html :: header}"></header>
 <main class="container-detail-insurance-list">
+    <div class="flash-success"  th:text="${success}" th:if="${success}"></div>
+    <div class="flash-error" th:text="${error}" th:if="${error}"></div>
     <article class="article-detail-insurance-list">
         <section class="section-detail-insurance-list">
             <h2>

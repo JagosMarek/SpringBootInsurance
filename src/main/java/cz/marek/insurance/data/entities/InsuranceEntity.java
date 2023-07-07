@@ -1,37 +1,28 @@
-package cz.marek.insurance.models.dto;
+package cz.marek.insurance.data.entities;
 
-import jakarta.validation.constraints.*;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class InsuranceDTO {
+@Entity
+public class InsuranceEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long insuranceId;
+    @Column(nullable = false)
     private long insuredId;
-    @NotNull(message = "Vyberte pojištění ze seznamu")
+    @Column(nullable = false)
     private long insuranceListId;
-    @NotBlank(message = "Vyplňte limit")
-    @NotNull(message = "Vyplňte limit")
-    @Pattern(regexp = "\\d+", message = "Limit musí být kladné číslo")
+    @Column(nullable = false)
     private String insuranceLimit;
-    @NotNull(message = "Vyplňte datum")
-    @FutureOrPresent(message = "Počáteční datum musí být dnešní nebo budoucí datum")
+    @Column(nullable = false)
     private LocalDate beginning;
-    @NotNull(message = "Vyplňte datum")
-    @FutureOrPresent(message = "Datum ukončení musí být dnešní nebo budoucí datum")
+    @Column(nullable = false)
     private LocalDate end;
-    @NotBlank(message = "Vyplňte předmět pojištění")
-    @NotNull(message = "Vyplňte předmět pojištění")
+    @Column(nullable = false)
     private String subjectOfInsurance;
-
-    @AssertTrue
-    public boolean isBeginningBeforeEnd() {
-        if (getBeginning() == null || getEnd() == null) {
-            return true;
-        }
-        return getBeginning().isBefore(getEnd()) || getBeginning().isEqual(getEnd());
-    }
-
 
     public long getInsuranceId() {
         return insuranceId;
@@ -56,6 +47,7 @@ public class InsuranceDTO {
     public void setInsuranceListId(long insuranceListId) {
         this.insuranceListId = insuranceListId;
     }
+
     public String getInsuranceLimit() {
         return insuranceLimit;
     }
@@ -88,5 +80,3 @@ public class InsuranceDTO {
         this.subjectOfInsurance = subjectOfInsurance;
     }
 }
-
-

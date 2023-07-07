@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+<body onload="reset()">
+<header th:replace="~{fragments/layout.html :: header}"></header>
+<main class="container">
+  <div class="flash-success"  th:text="${success}" th:if="${success}"></div>
+  <div class="flash-error" th:text="${error}" th:if="${error}"></div>
+  <article class="article-container">
+    <h2>
+      Úprava pojištění
+    </h2>
+    <section class="section-container">
+      <form th:object="${insuranceDTO}" th:action="@{'/insurance/edit/' + ${insuranceId}}" th:method="post">
+        <label>
+          Vyberte pojištění ze seznamu
+          <small th:errors="*{insuranceListId}" class="danger-text"></small>
+          <select th:field="*{insuranceListId}" class="insurance-list-insurance">
+            <option th:each="insuranceList : ${insuranceLists}" th:value="${insuranceList.insuranceListId}" th:text="${insuranceList.insuranceName + ' / ' + insuranceList.insuranceCompany}"></option>
+          </select>
+        </label>
+        <label>
+          Limit
+          <small th:errors="*{insuranceLimit}" class="danger-text"></small>
+          <input th:field="*{insuranceLimit}" type="text" name="insuranceLimit" id="insuranceLimit">
+        </label>
+        <label>
+          Předmět pojištění
+          <small th:errors="*{subjectOfInsurance}" class="danger-text"></small>
+          <input th:field="*{subjectOfInsurance}" type="text" name="subjectOfInsurance" id="subjectOfInsurance">
+        </label>
+        <label>
+          Počáteční datum
+          <small th:errors="*{beginning}" class="danger-text"></small>
+          <input th:field="*{beginning}" type="date" name="beginning" id="beginning">
+        </label>
+        <label>
+          Datum ukončení
+          <small th:errors="*{end}" class="danger-text"></small>
+          <input th:field="*{end}" type="date" name="end" id="end">
+        </label>
+        <input th:field="*{insuredId}" type="hidden" name="insuredId" />
+        <div class="button-container">
+          <input type="submit" value="Uložit" />
+          <input type="button" value="Vymazat" onclick="resetInsuranceCreateForm()" />
+        </div>
+      </form>
+      <a><button onclick="goBack()" class="back">Zpět</button></a>
+    </section>
+  </article>
+</main>
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+<script th:src="@{/scripts/script.js}"></script>
+<script>
+function goBack() {
+        window.history.back();
+    }
+</script>
+</body>
+</html>

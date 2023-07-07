@@ -399,11 +399,13 @@ body {
 .table td[data-label="Pojišťovna"],
 .table td[data-label="Adresa"],
 .table td[data-label="Pojištění"],
+.table td[data-label="ID uživatele"],
 .table td[data-label="Limit"] {
     font-size: 1.5rem;
     word-break: normal;
 }
 
+.table td[data-label="ID uživatele"] a,
 .table td[data-label="Pojištění"] a,
 .table td[data-label="Smlouva"] a,
 .table td[data-label="Rodné číslo"] a {
@@ -494,6 +496,10 @@ body {
 
 .section-detail-insured p {
     font-size: 1.2rem;
+}
+
+.section-detail-insured a {
+    color: var(--shield-blue);
 }
 
 .section-detail-insured .input-detail:hover {
@@ -1068,6 +1074,7 @@ body {
     .table td[data-label="Smlouva"],
     .table td[data-label="Pojišťovna"],
     .table td[data-label="Pojištění"],
+    .table td[data-label="ID uživatele"],
     .table td[data-label="Limit"] {
         font-size: 10px;
     }
@@ -1104,6 +1111,7 @@ body {
     }
 
     .table td[data-label="Limit"],
+    .table td[data-label="ID uživatele"],
     .table td[data-label="Pojištění"],
     .table td[data-label="Smlouva"],
     .table td[data-label="ID"],

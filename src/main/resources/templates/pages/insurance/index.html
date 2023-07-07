@@ -14,22 +14,22 @@
                 <a th:href="@{/insurance-list}"><button class="add">Vytvořit</button></a>
             </div>
         </div>
-        <div class="table-container" id="query-table">
-            <table class="table">
+        <div class="table-container">
+            <table class="table" id="query-table">
                 <thead class="table-head">
                 <tr>
                     <th>Smlouva</th>
-                    <th>Pojištění</th>
+                    <th>ID uživatele</th>
                     <th>Operace</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td data-label="Smlouva"><a href="#">21546358</a></td>
-                    <td data-label="Pojištění">Pojištění domácnost</td>
+                <tr th:each="insurance: ${insurance}">
+                    <td data-label="Smlouva"><a th:href="@{'/insurance/' + ${insurance.insuranceId}}" th:text="${insurance.insuranceId} + '' + ${insurance.insuredId} + '' + ${insurance.insuranceListId} + '8000PP'"></a>
+                    <td data-label="ID uživatele" th:text="'3200A' + ${insurance.insuredId}"></td>
                     <td data-label="Operace">
-                        <button class="edit">Editovat</button>
-                        <button class="delete">Odstranit</button>
+                        <a th:href="@{'/insurance/edit/' + ${insurance.insuranceId}}"><button class="edit">Editovat</button></a>
+                        <a th:href="@{'/insurance/deleteform/' + ${insurance.insuranceId}}"><button class="delete">Odstranit</button></a>
                     </td>
                 </tr>
                 </tbody>
@@ -39,5 +39,53 @@
 </main>
 <footer th:replace="~{fragments/layout.html :: footer}"></footer>
 <script th:src="@{/scripts/script.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/b-2.3.6/b-html5-2.3.6/datatables.min.js"></script>
+<script>
+    $(document).ready(function(){
+    $("#query-table").DataTable({
+        "dom": 'lBfrtip',
+        "lengthMenu": [10, 25, 50, 75, 100],
+        "columnDefs": [
+            { "orderable": false, "targets": [-1] }
+        ],
+        "buttons": [
+            {
+                extend: 'csv',
+                text: 'CSV'
+            },
+            {
+                extend: 'pdf',
+                text: 'PDF',
+                customize: function (doc) {
+                    doc.content[1].table.body.forEach(function (row) {
+                        row.splice(4, 1);
+                    });
+                }
+            }
+        ],
+        "language": {
+            "search": "Hledat:",
+            "lengthMenu": "Zobrazit _MENU_ záznamů na stránku",
+            "zeroRecords": "Nenalezeny žádné výsledky",
+            "info": "Strana _PAGE_ z _PAGES_, Celkem výsledků: _TOTAL_",
+            "infoEmpty": "Žádné dostupné záznamy",
+            "infoFiltered": "(filtrováno z celkového počtu _MAX_ záznamů)",
+            "paginate": {
+                "first": "První",
+                "previous": "<",
+                "next": ">",
+                "last": "Poslední"
+            },
+            "buttons": {
+                "csv": "CSV",
+                "pdf": "PDF",
+            }
+        }
+    });
+});
+</script>
 </body>
 </html>

@@ -19,7 +19,7 @@
       <p class="input-detail" th:text="${insured.lastName}"></p>
       <div class="delete-form-button">
         <a th:href="@{'/insured/delete/' + ${insured.insuredId}}"><button class="delete">Ano</button></a>
-        <a th:href="@{/insured}"><button class="edit">Ne</button></a>
+        <a th:href="@{'/insured/' + ${insured.insuredId}}"><button class="edit">Ne</button></a>
       </div>
     </section>
   </article>

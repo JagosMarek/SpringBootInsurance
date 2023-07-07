@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+<main class="container-delete">
+  <article class="article-delete">
+    <section class="section-delete">
+      <h2>
+        Opravdu chcete odstranit pojištění:
+      </h2>
+      <p>Předmět:</p>
+      <p class="input-detail" th:text="${insurance.subjectOfInsurance}"></p>
+      <p>Limit:</p>
+      <p class="input-detail" th:text="${insurance.insuranceLimit} + ' Kč'"></p>
+      <p>Začátek:</p>
+      <p class="input-detail" th:text="${insurance.beginning}"></p>
+      <p>Konec:</p>
+      <p class="input-detail" th:text="${insurance.end}"></p>
+      <div class="delete-form-button">
+        <a th:href="@{'/insurance/delete/' + ${insurance.insuranceId}}"><button class="delete">Ano</button></a>
+        <a><button onclick="goBack()" class="edit">Ne</button></a>
+      </div>
+    </section>
+  </article>
+</main>
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+<script th:src="@{/scripts/script.js}"></script>
+<script>
+function goBack() {
+        window.history.back();
+    }
+</script>
+</body>
+</html>
