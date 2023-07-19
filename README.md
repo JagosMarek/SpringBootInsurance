@@ -8,6 +8,7 @@ Webová aplikace vytvořena ve Spring Bootu. Aplikace umožňuje CRUD správu os
 - Aplikace obsahuje kompletní správu (CRUD) pojištěných (např. "Jan Novák") a jejich pojištění (např. "pojištění bytu").
 - Dané entity jsou uloženy v SQL databázi (JPA - Hibernate).
 - Osoby a pojištění jsou provázány vazbou 1:N, pojištění a pojišťovny taky mají vazbu 1:N (při odstranění osoby se odstraní i její pojištění).
+- Pro třídění a vyhledávání dat v tabulkách na stránce byla použita knihovna jQuery DataTables.
 - Aplikace je plně responzivní.
 - Všechny vstupy jsou validovány (Hibernate Validator).
 
