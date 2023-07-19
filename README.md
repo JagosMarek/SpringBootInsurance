@@ -1,4 +1,4 @@
-# Easurance 
+# Easurance 🏢
 
 Webová aplikace vytvořena ve Spring Bootu. Aplikace umožňuje CRUD správu osob a jejich pojištění. V roli admina taky správu pojišťoven.
 
