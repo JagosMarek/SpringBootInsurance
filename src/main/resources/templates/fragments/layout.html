@@ -18,25 +18,27 @@
             <img th:src="@{/images/logo.png}" alt="insurance-logo">
         </a>
         <ul class="nav-menu">
-            <li class="nav-item">
+            <span sec:authorize="hasAnyRole('ADMIN', 'USER')"><li class="nav-item">
                 <a th:href="@{/insured}" class="nav-link">Pojištěnci</a>
-            </li>
-            <li class="nav-item">
+            </li></span>
+            <span sec:authorize="hasAnyRole('ADMIN', 'USER')"><li class="nav-item">
                 <a th:href="@{/insurance}" class="nav-link">Pojištění</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Události</a>
-            </li>
+            </li></span>
             <li class="nav-item">
                 <a th:href="@{/about}" class="nav-link">O aplikaci</a>
             </li>
         </ul>
         <ul class="nav-registration">
-            <li class="nav-item">
-                <a href="#" class="nav-link">Přihlášení</a>
+            <li class="nav-item" sec:authorize="isAnonymous()">
+                <a th:href="@{/account/login}" class="nav-link">Přihlášení</a>
             </li>
+            <span sec:authorize="hasRole('ADMIN')"><li class="nav-item">
+                <a th:href="@{/account/register}" class="nav-link">Registrace</a>
+            </li></span>
             <li class="nav-item">
-                <a href="#" class="nav-link">Registrace</a>
+                <form method="post" th:action="@{/account/logout}">
+                    <button class="nav-link" sec:authorize="isAuthenticated()">Odhlásit se</button>
+                </form>
             </li>
         </ul>
         <div class="bar-menu">

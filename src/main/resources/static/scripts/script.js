@@ -55,6 +55,20 @@ function resetInsuranceCreateForm() {
     document.getElementById("insuranceListId").selectedIndex = -1;
 }
 
+/* login */
+
+function resetLoginForm() {
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+}
+
+/* register */
+
+function resetRegisterForm() {
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("confirm-password").value = "";
+}
 
 
 

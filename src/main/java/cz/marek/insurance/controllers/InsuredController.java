@@ -9,6 +9,7 @@ import cz.marek.insurance.models.services.InsuranceService;
 import cz.marek.insurance.models.services.InsuredService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,6 +31,7 @@ public class InsuredController {
     @Autowired
     private InsuranceService insuranceService;
 
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
     @GetMapping
     public String renderIndex(Model model) {
         List<InsuredDTO> insuredDTO = insuredService.getAll();

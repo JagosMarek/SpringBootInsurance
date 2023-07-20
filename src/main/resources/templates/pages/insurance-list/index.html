@@ -12,7 +12,7 @@
       <h2>Seznam pojištění</h2>
       <div class="header-button">
         <a th:href="@{/insurance}"><button class="back">Zpět</button></a>
-        <a th:href="@{/insurance-list/create}"><button class="add">Přidat</button></a>
+        <span sec:authorize="hasRole('ADMIN')"><a th:href="@{/insurance-list/create}"><button class="add">Přidat</button></a></span>
       </div>
     </div>
     <div class="table-container">
@@ -21,16 +21,16 @@
         <tr>
           <th>Pojištění</th>
           <th>Pojišťovna</th>
-          <th>Operace</th>
+          <span sec:authorize="hasRole('ADMIN')"><th>Operace</th></span>
         </tr>
         </thead>
         <tbody>
         <tr th:each="insuranceList: ${insuranceList}">
           <td data-label="Pojištění"><a th:href="@{'/insurance-list/' + ${insuranceList.insuranceListId}}" th:text="${insuranceList.insuranceName}"></a></td>
           <td data-label="Pojišťovna" th:text="${insuranceList.insuranceCompany}"></td>
-          <td data-label="Operace">
-            <a th:href="@{'/insurance-list/edit/' + ${insuranceList.insuranceListId}}"><button class="edit">Editovat</button></a>
-            <a th:href="@{'/insurance-list/deleteform/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a>
+          <span sec:authorize="hasRole('ADMIN')"><td data-label="Operace"></span>
+            <span sec:authorize="hasRole('ADMIN')"><a th:href="@{'/insurance-list/edit/' + ${insuranceList.insuranceListId}}"><button class="edit">Editovat</button></a></span>
+            <span sec:authorize="hasRole('ADMIN')"><a th:href="@{'/insurance-list/deleteform/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a></span>
           </td>
         </tr>
         </tbody>
@@ -49,7 +49,7 @@
     $(document).ready(function(){
     $("#query-table").DataTable({
         "dom": 'lBfrtip',
-        "lengthMenu": [10, 25, 50, 75, 100],
+        "lengthMenu": [10, 25],
         "columnDefs": [
             { "orderable": false, "targets": [-1] }
         ],

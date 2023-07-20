@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+<main class="container">
+  <article class="article-container">
+    <div class="flash-success"  th:text="${success}" th:if="${success}"></div>
+    <div class="flash-error" th:text="${error}" th:if="${error}"></div>
+    <div class="flash-error" th:if="${param.error}">Neplatný email nebo heslo.</div>
+    <br>
+    <h2>
+      Přihlášení
+    </h2>
+    <section class="section-container">
+      <form th:action="@{/account/login}" th:method="post">
+        <label>
+          Email
+          <small class="danger-text"></small>
+          <input type="text" name="email" id="email">
+        </label>
+        <label>
+          Heslo
+          <small class="danger-text"></small>
+          <input type="password" name="password" id="password">
+        </label>
+        <div class="button-container">
+          <input type="submit" value="Přihlásit" />
+          <input type="button" value="Vymazat" onclick="resetLoginForm()" />
+        </div>
+      </form>
+      <a><button onclick="goBack()" class="back">Zpět</button></a>
+    </section>
+  </article>
+</main>
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+<script th:src="@{/scripts/script.js}"></script>
+<script>
+function goBack() {
+        window.history.back();
+    }
+</script>
+</body>
+</html>

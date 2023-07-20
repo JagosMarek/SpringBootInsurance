@@ -3,7 +3,6 @@ package cz.marek.insurance.data.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @Entity
 public class InsuranceEntity {
