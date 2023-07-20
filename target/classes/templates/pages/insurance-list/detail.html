@@ -20,8 +20,8 @@
             <br>
         </section>
     </article>
-    <a th:href="@{'/insurance-list/edit/' + ${insuranceList.insuranceListId}}"><button class="edit">Editovat</button></a>
-    <a th:href="@{'/insurance-list/deleteform/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a>
+    <span sec:authorize="hasRole('ADMIN')"><a th:href="@{'/insurance-list/edit/' + ${insuranceList.insuranceListId}}"><button class="edit">Editovat</button></a></span>
+    <span sec:authorize="hasRole('ADMIN')"><a th:href="@{'/insurance-list/deleteform/' + ${insuranceList.insuranceListId}}"><button class="delete">Odstranit</button></a></span>
     <a th:href="@{/insurance-list}"><button class="edit">Zpět</button></a>
     <hr>
     <br>

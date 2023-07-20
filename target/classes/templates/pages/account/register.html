@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+<main class="container">
+    <div class="flash-success"  th:text="${success}" th:if="${success}"></div>
+    <div class="flash-error" th:text="${error}" th:if="${error}"></div>
+    <article class="article-container">
+        <h2>
+            Registrace
+        </h2>
+        <section class="section-container">
+            <form th:object="${userDTO}" th:action="@{/account/register}" th:method="post">
+                <label>
+                    Email
+                    <small th:errors="*{email}" class="danger-text"></small>
+                    <input th:field="*{email}" name="email" id="email" class="email">
+                </label>
+                <label>
+                    Heslo
+                    <small th:errors="*{password}" class="danger-text"></small>
+                    <input th:field="*{password}" type="password" name="password" id="password">
+                </label>
+                <label>
+                    Heslo znovu
+                    <small th:errors="*{confirmPassword}" class="danger-text"></small>
+                    <input th:field="*{confirmPassword}" type="password" name="confirm-password" id="confirm-password">
+                </label>
+                <div class="button-container">
+                    <input type="submit" value="Registrovat" />
+                    <input type="button" value="Vymazat" onclick="resetRegisterForm()" />
+                </div>
+            </form>
+            <a><button onclick="goBack()" class="back">Zpět</button></a>
+        </section>
+    </article>
+</main>
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+<script th:src="@{/scripts/script.js}"></script>
+<script>
+function goBack() {
+        window.history.back();
+    }
+</script>
+</body>
+</html>

@@ -110,6 +110,17 @@ body {
     background-color: var(--black);
 }
 
+.nav-registration button {
+    font-family: 'Poppins', 'Verdana';
+    width: fit-content;
+    border: none;
+    background-color: white;
+}
+
+.nav-registration button:hover {
+    cursor: pointer;
+}
+
 /* Global Footer */
 
 .application-footer {
@@ -127,6 +138,40 @@ body {
     font-size: 1.2rem;
 }
 
+/* error */
+
+.container-error {
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    flex: 1;
+    flex-direction: column;
+}
+
+.container-error img {
+    border-radius: 5px;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    width: 40%;
+}
+
+.container-error .back {
+    margin: 10px;
+    padding: 8px 16px;
+    background-color: var(--black);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.container-error .back:hover {
+    filter: brightness(115%) contrast(85%);
+}
 /* home page */
 
 .index-container {
@@ -185,6 +230,19 @@ body {
     height: auto;
 }
 
+.article-container h3 {
+    font-size: 2rem;
+}
+
+.article-container li {
+    font-size: 1.5rem;
+}
+
+.article-container li span {
+    font-weight: 600;
+    color: var(--shield-blue);
+}
+
 .article-container h2 {
     text-align: center;
     padding-bottom: 2rem;
@@ -202,6 +260,8 @@ body {
     text-align: left;
 }
 
+.section-container .email,
+.section-container input[type="password"],
 .section-container input[type="text"],
 .section-container input[type="date"]{
     width: 100%;
@@ -234,6 +294,8 @@ body {
     filter: brightness(115%) contrast(85%);
 }
 
+.section-container .email:hover,
+.section-container input[type="password"]:hover,
 .section-container input[type="text"]:hover,
 .section-container input[type="date"]:hover{
     border: .1rem solid var(--shield-blue);
@@ -723,7 +785,7 @@ body {
     .nav-registration {
         position: fixed;
         left: 100%;
-        top: 41rem;
+        top: 8rem;
         flex-direction: column;
         background-color: var(--black);
         border: .1rem solid rgba(0, 0, 0, .2);
@@ -740,7 +802,7 @@ body {
     }
 
     .nav-registration.active {
-        left: 50%;
+        left: 0%;
     }
 
     .nav-item {
@@ -754,6 +816,10 @@ body {
     .bar-menu {
         display: block;
         cursor: pointer;
+    }
+
+    .nav-registration button {
+        background-color: var(--black);
     }
 
     /* icon menu animation */
@@ -945,7 +1011,7 @@ body {
         margin: 0.8rem;
     }
 
-    .container .error-image {
+    .container-error .error-image {
         width: 80%;
     }
 
@@ -988,7 +1054,7 @@ body {
         font-size: 1.4rem;
     }
 
-    .container .error-image {
+    .container-error .error-image {
         width: 100%;
     }
 
