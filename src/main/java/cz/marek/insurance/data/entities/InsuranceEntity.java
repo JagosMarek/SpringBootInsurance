@@ -18,7 +18,7 @@ public class InsuranceEntity {
     private String insuranceLimit;
     @Column(nullable = false)
     private LocalDate beginning;
-    @Column(nullable = false)
+    @Column(name = "\"end\"", nullable = false) // because of postgres
     private LocalDate end;
     @Column(nullable = false)
     private String subjectOfInsurance;
