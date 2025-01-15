@@ -10,18 +10,12 @@ public class InsuranceListEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long insuranceListId;
-
     @Column(nullable = false)
     private String insuranceName;
-
     @Column(nullable = false)
     private String insuranceDescription;
-
     @Column(nullable = false)
     private String insuranceCompany;
-
-    @OneToMany(mappedBy = "insuranceList", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<InsuranceEntity> insurances;
 
     public long getInsuranceListId() {
         return insuranceListId;
