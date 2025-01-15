@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-01-08T22:41:31+0100",
+    date = "2025-01-15T21:50:57+0100",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 21.0.5 (Oracle Corporation)"
 )
 @Component
@@ -22,8 +22,6 @@ public class InsuranceMapperImpl implements InsuranceMapper {
         InsuranceEntity insuranceEntity = new InsuranceEntity();
 
         insuranceEntity.setInsuranceId( source.getInsuranceId() );
-        insuranceEntity.setInsuredId( source.getInsuredId() );
-        insuranceEntity.setInsuranceListId( source.getInsuranceListId() );
         insuranceEntity.setInsuranceLimit( source.getInsuranceLimit() );
         insuranceEntity.setBeginning( source.getBeginning() );
         insuranceEntity.setEnd( source.getEnd() );
@@ -41,8 +39,6 @@ public class InsuranceMapperImpl implements InsuranceMapper {
         InsuranceDTO insuranceDTO = new InsuranceDTO();
 
         insuranceDTO.setInsuranceId( source.getInsuranceId() );
-        insuranceDTO.setInsuredId( source.getInsuredId() );
-        insuranceDTO.setInsuranceListId( source.getInsuranceListId() );
         insuranceDTO.setInsuranceLimit( source.getInsuranceLimit() );
         insuranceDTO.setBeginning( source.getBeginning() );
         insuranceDTO.setEnd( source.getEnd() );
@@ -73,8 +69,6 @@ public class InsuranceMapperImpl implements InsuranceMapper {
         }
 
         target.setInsuranceId( source.getInsuranceId() );
-        target.setInsuredId( source.getInsuredId() );
-        target.setInsuranceListId( source.getInsuranceListId() );
         target.setInsuranceLimit( source.getInsuranceLimit() );
         target.setBeginning( source.getBeginning() );
         target.setEnd( source.getEnd() );

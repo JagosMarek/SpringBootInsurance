@@ -2,27 +2,40 @@ package cz.marek.insurance.data.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class InsuredEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long insuredId;
+
     @Column(nullable = false, unique = true)
     private String birthNumber;
+
     @Column(nullable = false)
     private String firstName;
+
     @Column(nullable = false)
     private String lastName;
+
     @Column(nullable = false, unique = true)
     private String email;
+
     @Column(nullable = false, unique = true)
     private String phone;
+
     @Column(nullable = false)
     private String street;
+
     @Column(nullable = false)
     private String city;
+
     @Column(nullable = false)
     private String psc;
+
+    @OneToMany(mappedBy = "insured", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<InsuranceEntity> insurances;
 
     // Getters and Setters
 

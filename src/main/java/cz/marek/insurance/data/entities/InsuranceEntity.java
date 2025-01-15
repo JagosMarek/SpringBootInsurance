@@ -10,16 +10,24 @@ public class InsuranceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long insuranceId;
-    @Column(nullable = false)
-    private long insuredId;
-    @Column(nullable = false)
-    private long insuranceListId;
+
+    @ManyToOne
+    @JoinColumn(name = "insuredId", nullable = false)
+    private InsuredEntity insured;
+
+    @ManyToOne
+    @JoinColumn(name = "insuranceListId", nullable = false)
+    private InsuranceListEntity insuranceList;
+
     @Column(nullable = false)
     private String insuranceLimit;
+
     @Column(nullable = false)
     private LocalDate beginning;
+
     @Column(name = "\"end\"", nullable = false) // because of postgres
     private LocalDate end;
+
     @Column(nullable = false)
     private String subjectOfInsurance;
 
@@ -31,20 +39,20 @@ public class InsuranceEntity {
         this.insuranceId = insuranceId;
     }
 
-    public long getInsuredId() {
-        return insuredId;
+    public InsuredEntity getInsured() {
+        return insured;
     }
 
-    public void setInsuredId(long insuredId) {
-        this.insuredId = insuredId;
+    public void setInsured(InsuredEntity insured) {
+        this.insured = insured;
     }
 
-    public long getInsuranceListId() {
-        return insuranceListId;
+    public InsuranceListEntity getInsuranceList() {
+        return insuranceList;
     }
 
-    public void setInsuranceListId(long insuranceListId) {
-        this.insuranceListId = insuranceListId;
+    public void setInsuranceList(InsuranceListEntity insuranceList) {
+        this.insuranceList = insuranceList;
     }
 
     public String getInsuranceLimit() {
