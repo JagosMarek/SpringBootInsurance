@@ -38,7 +38,7 @@ public class InsuranceServiceImpl implements InsuranceService{
 
    @Override
    public List<InsuranceDTO> getByInsuredId(long insuredId) {
-      List<InsuranceEntity> insuranceEntities = insuranceRepository.findByInsuredId(insuredId);
+      List<InsuranceEntity> insuranceEntities = insuranceRepository.findByInsured_InsuredId(insuredId);
       return insuranceEntities.stream()
               .map(insuranceMapper::toDTO)
               .collect(Collectors.toList());
@@ -46,7 +46,7 @@ public class InsuranceServiceImpl implements InsuranceService{
 
    @Override
    public List<InsuranceDTO> getByInsuranceListId(long insuranceListId) {
-      List<InsuranceEntity> insuranceEntities = insuranceRepository.findByInsuranceListId(insuranceListId);
+      List<InsuranceEntity> insuranceEntities = insuranceRepository.findByInsuranceList_InsuranceListId(insuranceListId);
       return insuranceEntities.stream()
               .map(insuranceMapper::toDTO)
               .collect(Collectors.toList());
